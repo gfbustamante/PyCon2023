@@ -3,9 +3,10 @@ Copy the "ring.wav" and "think.wav" files into a folder named "audio" on your CI
 
 Once the files are copied, this example plays a different wav file for each button pressed!"""
 from adafruit_circuitplayground import cp
+import pygame
+import random
 
 while True:
-    if cp.button_a:
-        cp.play_file("audio/vineboom.wav")
-    if cp.button_b:
-        cp.play_file("audio/think.wav")
+    if pygame.mouse.get_pressed():
+        cp.pixels.fill((round(random.random() * 255, 2), round(random.random() * 255, 2), round(random.random() * 255), 2))
+        time.sleep(0.001)
