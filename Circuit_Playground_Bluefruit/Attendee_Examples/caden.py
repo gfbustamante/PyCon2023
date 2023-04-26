@@ -6,9 +6,10 @@ cp.pixels.brightness = 0.3
 while cp.switch == False:
     for i in range(9):
         cp.pixels[i] = (100, 100, 200)
+        cp.clearPixels()
 
 while cp.switch == True:
-    
+    cp.clearPixels()
     if cp.button_a:
         cp.pixels[0] = (255, 0, 0)
         cp.pixels[1] = (235, 0, 0)
