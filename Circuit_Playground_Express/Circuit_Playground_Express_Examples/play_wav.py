@@ -11,12 +11,17 @@ import digitalio
 speaker_enable = digitalio.DigitalInOut(board.SPEAKER_ENABLE)
 speaker_enable.switch_to_output(value=True)
 
-data1, data2 = open("space.wav", "rb"), open("cyberpunk.wav", "rb")
-wav1, wav2 = audiocore.WaveFile(data1), audiocore.WaveFile(data2)
+wav_files = audiocore.WaveFile(open("3.wav", "rb")), \
+            audiocore.WaveFile(open("2.wav", "rb")), \
+            audiocore.WaveFile(open("1.wav", "rb")), \
+            audiocore.WaveFile(open("start.wav", "rb"))
+
 a = audioio.AudioOut(board.SPEAKER)
 
 print("Playing file.")
-a.play(wav2)
-while a.playing:
-    pass
+
+for wav in wav_files: a.play(wav)
+
+while a.playing: pass
+
 print("Playing file stopped.")
